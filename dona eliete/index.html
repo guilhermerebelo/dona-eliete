@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html ng-app="dona-eliete">
+<head>
+	<meta charset="utf-8">
+	<title>Sabores Dona Eliete</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>	
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nivo-lightbox.css">
+	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		angular.module("dona-eliete",[]);
+		angular.module("dona-eliete").controller("ajaxCtrl",function ($scope) {
+			$scope.abrir = function(par){
+				//funcao para abri e fechar utilizando ajax
+				switch (par){
+					case 1:
+						if ($scope.abrirTorta == true) {
+							$scope.abrirTorta = false;
+						} else{
+							$scope.abrirTorta = true;
+							$scope.abrirDoce = false;
+							$scope.abrirSalgado = false;
+						}
+						break;
+					case 2:
+						if ($scope.abrirDoce == true) {
+							$scope.abrirDoce = false;
+						} else{
+							$scope.abrirDoce = true;
+							$scope.abrirSalgado = false;
+							$scope.abrirTorta = false;
+						}
+						break;
+					case 3:
+						if ($scope.abrirSalgado == true) {
+							$scope.abrirSalgado = false;
+						} else{
+							$scope.abrirSalgado = true;
+							$scope.abrirDoce = false;
+							$scope.abrirTorta = false;
+						}
+						break;
+				}			
+			}
+			//ng-mouseover="menuDropDonwOver()"
+			$scope.menuDropDonwOver = function(){
+				$scope.dropDonw = true;
+			}
+			//
+			$scope.menuDropDonwLeave = function(){
+				$scope.dropDonw = false;
+			}
+
+
+		//fim scope
+		})
+	</script>
+</head>
+<body ng-controller="ajaxCtrl">
+
+<!-- preloader section -->
+<section class="preloader">
+	<div class="sk-spinner sk-spinner-pulse"></div>
+</section>
+
+<!-- navigation section -->
+
+<!-- preloader section -->
+<section class="section-whatsapp">
+	<span class="fa fa-whatsapp height-icon display-inline"></span>
+	<p class="display-inline">(48) 9 9806 0375 </p>
+</section>
+
+<!-- navigation section -->
+
+
+<section class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container" style="position: relative;">
+		<a href="#" class="navbar-brand" id="logo-G">
+			<figcaption>
+				<img src="images/logo.png" height="140">
+			</figcaption>
+		</a>
+		
+		<div  class="navbar-header">
+			<button class="navbar-toggle toggle-G" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>			
+		</div>
+	
+		<div class="collapse navbar-collapse" style="position: relative;">	
+			<div ng-mouseleave="menuDropDonwLeave()" ng-mouseover="menuDropDonwOver()">
+				<ul class="nav navbar-nav navbar-right fonte-menu menu-li-G">
+					<li><a href="#gallery" class="smoothScroll">PRODUTOS</a></li>
+					<li><a href="#team" class="smoothScroll">KITS</a></li>
+					<li><a href="#team" class="smoothScroll">EMPRESA</a></li>
+					<li><a href="#contact" class="smoothScroll">CONTATO</a></li>
+					<li class="height-icon">			
+						<a href="#" class="fa fa-facebook height-icon"></a>	
+						<a href="#" class="fa fa-instagram height-icon"></a>	
+					</li>
+				</ul>
+				<div ng-show="dropDonw" id="drop-donw-g">
+					<div>
+						<ul class="nav ul-style">
+							<li class="smoothScroll font-dropDonw font-dropDonw-titulo">PRODUTOS</li>
+							<li class="smoothScroll font-dropDonw">TORTAS & BOLOS</li>
+							<li class="smoothScroll font-dropDonw">SALGADOS</li>
+							<li class="smoothScroll font-dropDonw">DOCES</li>
+						</ul>						
+					</div>
+					<div>
+						<ul class="nav ul-style">
+							<li class="smoothScroll font-dropDonw font-dropDonw-titulo">KIT FESTA</li>
+							<li class="smoothScroll font-dropDonw">FESTA 15 PESSAOS</li>
+							<li class="smoothScroll font-dropDonw">FESTA 30 PESSOAS</li>
+							<li class="smoothScroll font-dropDonw">FESTA 50 PESSOAS</li>
+						</ul>						
+					</div>
+				</div>
+			</div>
+		</div>
+
+			
+		
+	</div>
+</section>
+
+
+<section id="home" class="parallax-section">
+	
+	<div class="row">
+		<div class="col-md-6 ajuste-home">
+			<img class="img-home" src="images/home.png">
+			<img class="img-home" src="images/home.png">
+		</div>
+		<div class="col-md-6 ajuste-home">
+			<img class="img-home" src="images/home.png">
+			<img class="img-home" src="images/home.png">		
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 ajuste-home">
+			<img class="img-home" src="images/home.png">
+			<img class="img-home" src="images/home.png">
+		</div>
+		<div class="col-md-6 ajuste-home">
+			<img class="img-home" src="images/home.png">
+			<img class="img-home" src="images/home.png">		
+		</div>			
+	</div>
+	<!--<div class=" btn-home">
+		<button class="btn btn-danger">FRASE</button>
+	</div>-->
+</section>
+
+
+<section class="container" id="produtos-section">
+		<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+			<h1 class="heading titulo-section">PRODUTOS</h1>
+			<hr>
+		</div>
+	
+		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.3s" ng-click="abrir(3)">
+			<figure>
+				<img  class="img-produtos" src="images/salgados-icon.png">
+			</figure>
+			<figcaption class="figure-caption font-produtos"><span>SALGADOS</span></figcaption>
+		</div>
+		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.3s" ng-click="abrir(1)">
+			<figure>
+				<img  class="img-produtos" src="images/torta-icon.png">
+			</figure>
+			<figcaption class="figure-caption font-produtos"><span>BOLOS & TORTAS</span></figcaption>
+		</div>
+		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.3s" ng-click="abrir(2)">
+			<figure>
+				<img  class="img-produtos" src="images/brigadeiros-icon.png">
+			</figure>
+			<figcaption class="figure-caption font-produtos"><span>DOCES</span></figcaption>
+		</div>
+
+</section>
+
+
+<!-- gallery section -->
+<section id="gallery" class="container-fluid">
+	<div class="container" >		
+		<div class="row" ng-if="abrirTorta">
+			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+				<h1 class="heading">BOLOS & TORTAS</h1>
+			</div>
+
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+				<a href="images/gallery-img1.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img1.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Prawn</h3>
+					<span>Seafood / Shrimp / Lemon</span>
+				</div>
+				<a href="images/gallery-img2.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img2.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Vegetables</h3>
+					<span>Tomato / Rosemary / Lemon</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" ng-if="abrirDoce">		
+			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+				<h1 class="heading">DOCES</h1>
+			</div>	
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+				<a href="images/gallery-img1.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img1.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Prawn</h3>
+					<span>Seafood / Shrimp / Lemon</span>
+				</div>
+				<a href="images/gallery-img2.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img2.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Vegetables</h3>
+					<span>Tomato / Rosemary / Lemon</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" ng-if="abrirSalgado">	
+		<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+				<h1 class="heading">SALGADOS</h1>
+			</div>		
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+				<a href="images/gallery-img1.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img1.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Prawn</h3>
+					<span>Seafood / Shrimp / Lemon</span>
+				</div>
+				<a href="images/gallery-img2.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img2.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Vegetables</h3>
+					<span>Tomato / Rosemary / Lemon</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+				<a href="images/gallery-img4.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img4.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Salad</h3>
+					<span>Chicken / Rosemary / Green</span>
+				</div>
+				<a href="images/gallery-img5.jpg" data-lightbox-gallery="zenda-gallery"><img src="images/gallery-img5.jpg" alt="gallery img"></a>
+				<div>
+					<h3>Lemon-Rosemary Pizza</h3>
+					<span>Pasta / Rosemary / Green</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- secao de kits -->
+	<section id="pricing-section">
+        <div class="wrap-pad">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+					<h1 class="heading">KIT ANIVERSARIO & EVENTOS</h1>
+					<hr>
+				</div>
+                <!-- ./ Heading div-->
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 margin-top-50 ">
+                    <div id="pricing-table" class="row">
+                        <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                            <ul class="plan-main">
+                                <li class="plan-name">Starter</li>
+                                <li class="plan-price">$ 100</li>
+                                <li>5GB Storage</li>
+                                <li>1GB Space</li>
+                                <li>200 Bandwidth</li>
+                                <li>100 Email Address</li>
+                                <li>24x7 Support</li>
+                                <li>Live Chat</li>
+                                <li class="plan-action"><a href="#" class="btn btn-danger btn-lg">Signup</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                            <ul class="plan-main featured">
+                                <li class="plan-name">Medium</li>
+                                <li class="plan-price">$ 200</li>
+                                <li>5GB Storage</li>
+                                <li>1GB Space</li>
+                                <li>200 Bandwidth</li>
+                                <li>100 Email Address</li>
+                                <li>24x7 Support</li>
+                                <li>Live Chat</li>
+                                <li class="plan-action"><a href="#" class="btn btn-danger btn-lg">Signup</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-4" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                            <ul class="plan-main">
+                                <li class="plan-name">Advance</li>
+                                <li class="plan-price">$ 300</li>
+                                <li>5GB Storage</li>
+                                <li>1GB Space</li>
+                                <li>200 Bandwidth</li>
+                                <li>100 Email Address</li>
+                                <li>24x7 Support</li>
+                                <li>Live Chat</li>
+                                <li class="plan-action"><a href="#" class="btn btn-danger btn-lg">Signup</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./ Content div-->
+            </div>
+        </div>
+    </section>
+
+    <!-- secao de kits -->
+	
+
+
+
+
+
+<!-- contact section -->
+<section id="contact" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+				<h1 class="heading">CONTATO & EMPRESA</h1>
+				<hr>
+			</div>
+			<div class="col-md-6 wow fadeIn" data-wow-delay="0.9s">
+				<form id="dadosFormulario" action="" method="post">
+					<div class="col-md-12 col-sm-12">
+						<input name="fnome" type="text" class="form-control" id="name" placeholder="Nome">
+				  	</div>
+				  	<div class="col-md-12 col-sm-12">
+						<input name="ftelefone" type="text" class="form-control" id="fone" placeholder="Telefone">
+				  	</div>
+					<div class="col-md-12 col-sm-12">
+						<input name="femail" type="email" class="form-control" id="email" placeholder="Email">
+				  	</div>
+					<div class="col-md-12 col-sm-12">
+						<textarea name="fmensagem" rows="8" class="form-control" id="message" placeholder="Mensagem"></textarea>
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<input name="submit" type="submit" class="form-control" id="fBotao" value="Enviar">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6  wow fadeIn" data-wow-delay="0.9s">
+				<div class="col-md-12">
+					<h2 class="heading" style="text-align: center;">Sabores Dona Eliete</h2>
+					<p><div class="titulo-empresa">Historia</div><br>
+					<div class="text-empresa">A história da Sabores Dona Eliete começou em 2014, quando depois de muitos pedidos resolvemos comercializar a famosa Torta Fria da Dona Eliete.<br></div>
+
+					<div class="text-empresa">De lá para cá trabalhamos em eventos e sempre pensando em trazer um maravilhosa experiencia para o consumidor, hoje vendemos mais de 50 sabores entre salgados, doces, doces e tortas, claro sem deixa de vender a Torta Fria Dona Eliete.
+					</div>
+					</p>
+				</div>
+				<div class="col-md-12">
+					<p><div class="titulo-empresa">Missão</div></p>
+					<p>
+						<div class="text-empresa"> Oferecer soluções para comemorações & festas de aniversario</div>
+					</p>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- footer section -->
+<footer class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<h2 class="heading">Contato</h2>
+				<div class="ph">
+					<p><i class="fa fa-phone"></i> Celular</p>
+					<h4>(48) 9 9806 0375</h4>
+					<h4>(48) 9 9806 0375</h4>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<h2 class="heading">Follow Us</h2>
+				<ul class="social-icon">
+					<li><a href="#" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-instagram wow bounceIn" data-wow-delay="0.6s"></a></li>
+					<li><a href="#" class="fa fa-whatsapp wow bounceIn" data-wow-delay="0.9s"></a></li>
+				</ul>
+			</div>
+			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<h2 class="heading">Desenvolvido por</h2>
+				<h4>
+					MonnSoft
+				</h4>
+			</div>			
+		</div>
+	</div>
+	<p style="text-align: center;">@Sabores Dona Eliete - 2017 - Todos os direitos reservados</p>
+</footer>
+
+
+
+
+	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/nivo-lightbox.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+<!-- begin jquery do enviar formulario -->
+ 
+  <script language="javascript" type="text/javascript">
+    // evitando que os dados sejam submetidos pelo modo tradicional
+    jQuery(document).ready(function(){
+    jQuery("#dadosFormulario").submit(function(){
+    return false;
+    });
+            
+    // carregando a função para o envio
+    jQuery("#fBotao").click(function(){
+    envia_form();
+    });
+     
+    // limpando a div antes de um novo envio
+    function envia_form() {
+        jQuery("#retorno").empty();
+                
+        // pegando os campos do formulário
+        var fnome = jQuery("#fnome").val();
+        var ftelefone = jQuery("#ftelefone").val();
+        var femail = jQuery("#femail").val();
+        var fmensagem = jQuery("#fmensagem").val();
+         
+        // tipo dos dados, url do documento, tipo de dados, campos enviados     
+        // para GET mude o type para GET  
+        jQuery.ajax({
+        type: "POST",
+        url: "php/enviarEmail.php",
+        dataType: "html",
+        data: "&fnome=" + fnome + "&ftelefone=" + ftelefone + "&femail=" + femail + "&fmensagem=" + fmensagem,
+         
+        // enviado com sucesso
+        success: function(response){
+        jQuery("#retorno").append(response);
+        alert("Mensagem enviada com sucesso");
+        },
+        // quando houver erro
+        error: function(){
+        alert("Erro no envio da mensagem, caso o erro persista ligue - (48) 9 9806 0375");
+        }
+      });        
+    }
+    });
+  </script>
+
+<!-- end jquery do enviar formulario -->
+
+
+</body>
+</html>

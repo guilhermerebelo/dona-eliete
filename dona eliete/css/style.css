@@ -1,0 +1,586 @@
+/*
+
+alterações gui
+
+*/
+
+/* waths app*/
+.section-whatsapp{
+  position: fixed;
+  background: green;
+  right: -322px;/* -70 aberto*/
+  top: 120px;
+  z-index: 99;
+  border-radius: 50px;
+  padding: 20px 80px 15px 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+.section-whatsapp:hover{
+  right: -70px;
+}
+.section-whatsapp p{
+  font-size: 30px;
+  color: white;
+  margin-top: 0px;
+  margin-left: 18px;
+  position: relative;
+}
+.display-inline{
+  display: inline-block;
+}
+
+/*  fim waths app*/
+
+/* secao de produtos */
+#produtos-section{
+  margin-top: 100px;
+  text-align: center;
+}
+.img-produtos{
+  transition: all .6s;
+  cursor: pointer;
+}
+.img-produtos:hover{
+  transform: scale(1.1);
+}
+.font-produtos{
+  font-size: 24px;
+  transition: all 0.5s;
+  color: #777;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+.font-produtos:hover{
+  color: #4c0000;
+}
+.titulo-section{
+  font-size: 45px !important;
+}
+
+
+/*fim produtos*/
+
+
+body{
+  overflow-x: hidden;
+}
+.font-G{
+  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  color: #777;
+  font-size: 15px;  
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+#logo-G{
+  position: absolute;
+  top: 0px;
+  z-index: 99;  
+  padding-top: 0px;
+  margin-top: -5px;
+}
+#logo-G figcaption{
+  background: #bc0000;
+}
+.menu-li-G{
+  padding-top: 20px;
+  padding-bottom: 20px;  
+}
+.ul-style{
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+.height-icon{
+  font-size: 35px !important;
+  display: inline !important;
+}
+.menu-li-G a:hover{ 
+  color: #4c0000 !important;
+}
+.toggle-G{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#drop-donw-g{
+  position: absolute;
+  width: 360px;
+  right: 150px;
+  margin-top: 85px;
+  cursor: pointer;
+}
+#drop-donw-g div{
+  background-color: white;
+  width: 49%;
+  height: 100%;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px; 
+  border-radius: 5%; 
+}
+.font-dropDonw{
+  font-size: 13px;
+  margin-top: 3px;
+  transition: all 0.6s;
+}
+.font-dropDonw:hover{
+ color: #4c0000;
+}
+.font-dropDonw-titulo{
+   font-size: 15px;
+   margin-bottom: 10px;
+}
+
+
+/* fonte empresa e dados empresa */
+.titulo-empresa{
+  margin-top: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+.text-empresa{
+  text-align: justify;
+  font-size: 15px;
+  text-indent: 20px;
+  color: #848484; 
+  letter-spacing: 0.4px;
+}
+/* fonte empresa e dados empresa */
+
+
+
+
+@media screen and (max-width: 767px){
+  .menu-li-G{
+    text-align: right;
+  }
+}
+
+
+
+
+/**********************************************************/
+
+body
+	{
+		background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    position: relative;
+	}
+
+.heading {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.subheading {
+  font-size: 16px;
+  padding-bottom: 60px;
+}
+
+p {
+  color: #848484;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  line-height: 28px;
+}
+
+hr {
+	border-top: 2px solid #828282;
+	width: 120px;
+}
+
+#menu, #gallery, #team {
+	padding-bottom: 100px;
+}
+#menu, #contact {
+  background: #f0f0f0;
+}
+
+.parallax-section {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+
+/* preloader section */
+.preloader  {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+            -ms-flex-flow: row nowrap;
+                flex-flow: row nowrap;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background: none repeat scroll 0 0 #fff;
+    }
+.sk-spinner-pulse {
+  width: 40px;
+  height: 40px;
+  background-color: #F6D76B;
+  border-radius: 100%;
+  -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+          animation: sk-pulseScaleOut 1s infinite ease-in-out; }
+
+@-webkit-keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
+
+@keyframes sk-pulseScaleOut {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0; } }
+
+
+/* start navigation */
+.navbar-default {
+  background: #ffffff;
+  box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.04);
+  border: none;
+  margin-bottom: 0;
+}
+.navbar-brand, .navbar-nav li a {
+  line-height: 28px;
+}
+.navbar-default .navbar-brand  {
+  color: #5C5C5C;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.navbar-default .navbar-nav li a {
+  font-size: 15px;
+  letter-spacing: 1px;
+  transition: all 0.6s;
+}
+
+
+/*gui code*/
+
+#home{
+  margin-top: 100px;
+  width: 100%;
+  padding: 0px;
+  position: relative;
+}
+.img-home{
+  width: 50%;
+  margin-left: -3px;
+  transition: all 0.5s;
+}
+.img-home:hover{
+  cursor: pointer;
+  opacity: 0.8;
+  /*transform: scale(1.1);*/
+}
+.ajuste-home{
+  padding: 0px;
+}
+.btn-home{
+  position: absolute;
+  text-align: center;
+  top: 60%;
+  width: 100%;
+}
+.btn-danger{
+  font-size: 25px;
+}
+
+
+/* home section  original*/ 
+/*#home {
+background: url('../images/gif.gif') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+#home h1 {
+  font-size: 20px;
+  letter-spacing: 8px;
+  font-style: normal;
+  padding-top: 10px;
+}
+#home .btn {
+  background: transparent;
+  border-radius: 0;
+  border: 3px solid #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 16px 42px;
+  margin-top: 40px;
+  transition: all 0.4s ease-in-out;
+}
+#home .btn:hover {
+  background: #ffffff;
+  color: #202020;
+}*/
+
+/* team section */
+#team {
+  text-align: center;
+}
+#team h3 {
+  font-size: 18px;
+  line-height: 4px;
+}
+#team h4 {
+  color: #5C5C5C;
+  padding-top: 24px;
+}
+#team .col-md-4 {
+ padding-top: 42px;
+}
+
+/* menu section */
+#menu h4 {
+	line-height: 1.5;
+}
+#menu .col-md-8 {
+  padding-bottom: 42px;
+}
+#menu .col-md-6 {
+  padding-bottom: 18px;
+}
+#menu span {
+  color: #5C5C5C;
+}
+
+/* gallery section */
+#gallery {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+#gallery .col-md-4 {
+  padding-top: 52px;
+}
+#gallery img {
+  width: 100%;
+  padding-bottom: 18px;
+}
+#gallery .col-md-4 div {
+  position: relative;
+  bottom: 18px;
+  padding-bottom: 12px;
+}
+#gallery h3 {
+  font-size: 18px;
+  line-height: 8px;
+}
+
+/* contact section */
+#contact {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+#contact .col-md-8 {
+  margin-bottom: 32px;
+}
+#contact .form-control {
+  background: #ffffff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: all 0.4s ease-in-out;
+}
+#contact .form-control:focus {
+  border-color: #f9f9f9;
+}
+#contact input {
+  height: 48px;
+}
+#contact input[type="submit"] {
+  background: transparent;
+  border: 2px solid #999;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  margin-top: 12px;
+  height: 50px;
+}
+#contact input[type="submit"]:hover {
+  background: #999;
+  color: #ffffff;
+}
+
+/* footer section */
+footer {
+  background: url('../images/background-fundo.png') 50% 0 repeat-y fixed;
+  background: gray;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+footer h2 {
+  padding-bottom: 14px;
+}
+footer h3 {
+  padding-top: 8px;
+}
+footer p {
+  color: #ffffff;
+}
+footer span {
+  font-weight: bold;
+  padding-left: 24px;
+}
+footer .ph, footer .address {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+footer .fa {
+  font-size: 12px;
+  padding-right: 10px;
+}
+
+/* social icon */
+.social-icon {
+  padding: 0;
+}
+.social-icon li {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+.social-icon li a {
+  background: #f0f0f0;
+  border-radius: 50%;
+  color: #5C5C5C;
+  font-size: 16px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  margin-top: 12px;
+  margin-right: 16px;
+  top: 0;
+  position: relative;
+  padding: 0;
+}
+.social-icon li a:hover {
+  background: #F6D76B;
+  top: 5px;
+}
+
+/* copyright section */
+#copyright {
+  background: #343434;
+  color: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+#copyright p {
+  color: #ffffff;
+}
+#copyright a {
+  color: #ffffff;
+}
+#copyright a:hover {
+  color: #FF0;
+}
+
+
+
+
+
+
+
+/* estilo dos kits*/
+.margin-top-50 {
+    margin-top: 50px;
+}
+#pricing-section {
+    background-color:#F7F7F7;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+#pricing-section .plan-main {
+  background: #fff;
+  list-style: none;
+  margin: 0 0 20px;
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid #bc0000;
+}
+#pricing-section .plan-main li {
+  padding: 10px 0;
+  margin: 0 15px;
+  border-bottom: 1px dashed #eee;
+}
+#pricing-section .plan-main li.plan-name {
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+#pricing-section .plan-main li.plan-price {
+  color: #666;
+  padding: 15px 0;
+  font-size: 48px;
+}
+#pricing-section .plan-main li.plan-action {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 0;
+}
+#pricing-section .plan-main.featured {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+#pricing-section .plan-main.featured .plan-price {
+  color: #fff;
+  background-color: #bc0000;
+  border-bottom-color: #bc0000;
+  margin: 0;
+}
+
+
+
+/* estilo dos kits*/
