@@ -41,9 +41,10 @@ alterações gui
 .img-produtos{
   transition: all .6s;
   cursor: pointer;
+  box-shadow: 
 }
 .img-produtos:hover{
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 .font-produtos{
   font-size: 24px;
@@ -435,7 +436,7 @@ background: url('../images/gif.gif') 50% 0 repeat-y fixed;
   height: 50px;
 }
 #contact input[type="submit"]:hover {
-  background: #999;
+  background: #bc0000;
   color: #ffffff;
 }
 
@@ -447,7 +448,7 @@ footer {
   background-size: cover;
   background-position: center;
   color: #ffffff;
-  padding-top: 80px;
+  padding-top: 50px;
   padding-bottom: 30px;
   text-align: center;
 }
