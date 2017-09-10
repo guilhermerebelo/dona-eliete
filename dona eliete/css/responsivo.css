@@ -1,0 +1,24 @@
+/* abaixo de 767px ele vai aplicar essas estilizações */
+@media screen and (max-width: 767px){
+  .menu-li-G{
+    text-align: right;
+  }
+  #drop-donw-g{
+  	display: none;
+  }
+  .sumir-responsivo{
+  	display: none !important;
+  }
+
+}
+
+
+
+
+/* acima de 767px ele vai aplicar essas estilizações */
+@media screen and (min-width: 767px){
+	.menu-767px{
+		display: none !important;
+	}
+  
+}

@@ -1,8 +1,79 @@
-/*
-
-alterações gui
-
+/* 
+edições: Guilherme Rebelo
 */
+
+
+body
+  {
+    background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  a{
+    text-decoration: none !important;
+  }
+
+.heading {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.subheading {
+  font-size: 16px;
+  padding-bottom: 60px;
+}
+
+p {
+  color: #848484;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  line-height: 28px;
+}
+
+hr {
+  border-top: 2px solid #828282;
+  width: 120px;
+}
+
+#menu, #gallery, #team {
+  padding-bottom: 100px;
+}
+#menu, #contact {
+  background: #f0f0f0;
+}
+
+
+
+/* modal */
+.titulo-modal{
+  font-weight: bold;
+  font-size: 20px;
+}
+.telefone-modal{
+  margin-top: 10px;
+  border-radius: 15px;
+  background-color: green;
+  padding-left: 10px;
+  padding-top: 7px;
+  bottom: 0px;
+}
+.telefone-modal p{
+  color: white;
+  font-size: 23px;
+}
+.telefone-modal span{
+  color: white;
+  margin-right: 5px;
+  font-size: 8px;
+  margin-top: 20px;
+}
+/* modal */
+
+
 
 /* whatts app*/
 .section-whatsapp{
@@ -30,52 +101,17 @@ alterações gui
 .display-inline{
   display: inline-block;
 }
-
 /*  fim waths app*/
 
-/* secao de produtos */
-#produtos-section{
-  margin-top: 100px;
-  text-align: center;
-}
-.img-produtos{
-  transition: all .6s;
-  cursor: pointer;
-  box-shadow: 
-}
-.img-produtos:hover{
-  transform: scale(1.08);
-}
-.font-produtos{
-  font-size: 24px;
-  transition: all 0.5s;
-  color: #777;
-  font-family: 'Roboto', sans-serif;
-  cursor: pointer;
-}
-.font-produtos:hover{
-  color: #4c0000;
-}
-.titulo-section{
-  font-size: 45px !important;
-}
 
 
-/*fim produtos*/
 
 
-body{
-  overflow-x: hidden;
-}
-.font-G{
-  letter-spacing: 1px;
-  font-family: 'Roboto', sans-serif;
-  color: #777;
-  font-size: 15px;  
-  cursor: pointer;
-  transition: all 0.5s;
-}
 
+
+
+
+/* logo */
 #logo-G{
   position: absolute;
   top: 0px;
@@ -86,6 +122,12 @@ body{
 #logo-G figcaption{
   background: #bc0000;
 }
+/* logo */
+
+
+
+
+/* navbar e dropdonw menu*/
 .menu-li-G{
   padding-top: 20px;
   padding-bottom: 20px;  
@@ -93,6 +135,14 @@ body{
 .ul-style{
   padding-left: 15px;
   padding-bottom: 20px;
+}
+.ul-style a{
+  color:#777;
+  padding: 0px 0px !important;
+}
+.ul-style a:hover{
+  background-color: white !important;
+
 }
 .height-icon{
   font-size: 35px !important;
@@ -134,79 +184,15 @@ body{
    font-size: 15px;
    margin-bottom: 10px;
 }
+/* navbar e dropdonw menu*/
 
 
-/* fonte empresa e dados empresa */
-.titulo-empresa{
-  margin-top: 20px;
-  font-size: 23px;
-  font-weight: bold;
-}
-.text-empresa{
-  text-align: justify;
-  font-size: 15px;
-  text-indent: 20px;
-  color: #848484; 
-  letter-spacing: 0.4px;
-}
-/* fonte empresa e dados empresa */
-
-
-
-
-@media screen and (max-width: 767px){
-  .menu-li-G{
-    text-align: right;
-  }
-}
-
-
-
-
-/**********************************************************/
-
-body
-	{
-		background: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    position: relative;
-	}
-
-.heading {
-  font-size: 30px;
-  font-weight: 500;
-}
-
-.subheading {
-  font-size: 16px;
-  padding-bottom: 60px;
-}
-
-p {
-  color: #848484;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.4px;
-  line-height: 28px;
-}
-
-hr {
-	border-top: 2px solid #828282;
-	width: 120px;
-}
-
-#menu, #gallery, #team {
-	padding-bottom: 100px;
-}
-#menu, #contact {
-  background: #f0f0f0;
-}
-
+/*parallax*/
 .parallax-section {
   background-attachment: fixed !important;
   background-size: cover !important;
 }
+/*parallax*/
 
 /* preloader section */
 .preloader  {
@@ -255,6 +241,9 @@ hr {
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 0; } }
+/* preloader section */
+
+
 
 
 /* start navigation */
@@ -278,30 +267,33 @@ hr {
   letter-spacing: 1px;
   transition: all 0.6s;
 }
+/* start navigation */
 
 
-/*gui code*/
 
-#home{
+/*banner principal*/
+#banner-principal{
   margin-top: 100px;
   width: 100%;
   padding: 0px;
   position: relative;
 }
-.img-home{
+.img-banner-principal{
   width: 50%;
   margin-left: -3px;
   transition: all 0.5s;
 }
-.img-home:hover{
+.img-banner-principal:hover{
   cursor: pointer;
   opacity: 0.8;
-  /*transform: scale(1.1);*/
+  /*
+  transform: scale(1.1);
+  */
 }
-.ajuste-home{
+.ajuste-banner-principal{
   padding: 0px;
 }
-.btn-home{
+.btn-banner-principal{
   position: absolute;
   text-align: center;
   top: 60%;
@@ -310,63 +302,38 @@ hr {
 .btn-danger{
   font-size: 25px;
 }
+/*banner principal*/
 
 
-/* home section  original*/ 
-/*#home {
-background: url('../images/gif.gif') 50% 0 repeat-y fixed;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 80vh;
+/* secao de produtos */
+#produtos-section{
+  margin-top: 100px;
   text-align: center;
 }
-#home h1 {
-  font-size: 20px;
-  letter-spacing: 8px;
-  font-style: normal;
-  padding-top: 10px;
+.img-produtos{
+  transition: all .6s;
+  cursor: pointer;
 }
-#home .btn {
-  background: transparent;
-  border-radius: 0;
-  border: 3px solid #ffffff;
-  color: #ffffff;
-  font-weight: bold;
-  letter-spacing: 2px;
-  padding: 16px 42px;
-  margin-top: 40px;
-  transition: all 0.4s ease-in-out;
+.img-produtos:hover{
+  transform: scale(1.08);
 }
-#home .btn:hover {
-  background: #ffffff;
-  color: #202020;
-}*/
+.font-produtos{
+  font-size: 24px;
+  transition: all 0.5s;
+  color: #777;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+}
+.font-produtos:hover{
+  color: #4c0000;
+}
+.titulo-section{
+  font-size: 45px !important;
+}
+/* secao de produtos */
 
-/* team section */
-#team {
-  text-align: center;
-}
-#team h3 {
-  font-size: 18px;
-  line-height: 4px;
-}
-#team h4 {
-  color: #5C5C5C;
-  padding-top: 24px;
-}
-#team .col-md-4 {
- padding-top: 42px;
-}
+
+
 
 /* menu section */
 #menu h4 {
@@ -381,6 +348,11 @@ background: url('../images/gif.gif') 50% 0 repeat-y fixed;
 #menu span {
   color: #5C5C5C;
 }
+/* menu section */
+
+
+
+
 
 /* gallery section */
 #gallery {
@@ -403,6 +375,9 @@ background: url('../images/gif.gif') 50% 0 repeat-y fixed;
   font-size: 18px;
   line-height: 8px;
 }
+/* gallery section */
+
+
 
 /* contact section */
 #contact {
@@ -439,6 +414,25 @@ background: url('../images/gif.gif') 50% 0 repeat-y fixed;
   background: #bc0000;
   color: #ffffff;
 }
+/* contact section */
+
+
+/* fonte empresa e dados empresa */
+.titulo-empresa{
+  margin-top: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+.text-empresa{
+  text-align: justify;
+  font-size: 15px;
+  text-indent: 20px;
+  color: #848484; 
+  letter-spacing: 0.4px;
+}
+/* fonte empresa e dados empresa */
+
+
 
 /* footer section */
 footer {
@@ -473,6 +467,8 @@ footer .fa {
   font-size: 12px;
   padding-right: 10px;
 }
+/* footer section */
+
 
 /* social icon */
 .social-icon {
@@ -501,27 +497,12 @@ footer .fa {
   padding: 0;
 }
 .social-icon li a:hover {
-  background: #F6D76B;
+  background: #bc0000;
   top: 5px;
+  color: white;
 }
+/* social icon */
 
-/* copyright section */
-#copyright {
-  background: #343434;
-  color: #ffffff;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  text-align: center;
-}
-#copyright p {
-  color: #ffffff;
-}
-#copyright a {
-  color: #ffffff;
-}
-#copyright a:hover {
-  color: #FF0;
-}
 
 
 
@@ -581,7 +562,18 @@ footer .fa {
   border-bottom-color: #bc0000;
   margin: 0;
 }
-
-
-
 /* estilo dos kits*/
+
+
+
+
+
+/* EXLUIR
+.font-G{
+  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  color: #777;
+  font-size: 15px;  
+  cursor: pointer;
+  transition: all 0.5s;
+}*/

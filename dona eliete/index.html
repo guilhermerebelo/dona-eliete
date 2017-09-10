@@ -8,9 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
-	<meta name="description" content="">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>	
+	<meta name="description" content="">	
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
@@ -18,55 +16,9 @@
 	<link rel="stylesheet" href="css/nivo-lightbox.css">
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsivo.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
-	<script type="text/javascript">
-		angular.module("dona-eliete",[]);
-		angular.module("dona-eliete").controller("ajaxCtrl",function ($scope) {
-			$scope.abrir = function(par){
-				//funcao para abri e fechar utilizando ajax
-				switch (par){
-					case 1:
-						if ($scope.abrirTorta == true) {
-							$scope.abrirTorta = false;
-						} else{
-							$scope.abrirTorta = true;
-							$scope.abrirDoce = false;
-							$scope.abrirSalgado = false;
-						}
-						break;
-					case 2:
-						if ($scope.abrirDoce == true) {
-							$scope.abrirDoce = false;
-						} else{
-							$scope.abrirDoce = true;
-							$scope.abrirSalgado = false;
-							$scope.abrirTorta = false;
-						}
-						break;
-					case 3:
-						if ($scope.abrirSalgado == true) {
-							$scope.abrirSalgado = false;
-						} else{
-							$scope.abrirSalgado = true;
-							$scope.abrirDoce = false;
-							$scope.abrirTorta = false;
-						}
-						break;
-				}			
-			}
-			//ng-mouseover="menuDropDonwOver()"
-			$scope.menuDropDonwOver = function(){
-				$scope.dropDonw = true;
-			}
-			//
-			$scope.menuDropDonwLeave = function(){
-				$scope.dropDonw = false;
-			}
 
-
-		//fim scope
-		})
-	</script>
 </head>
 <body ng-controller="ajaxCtrl">
 
@@ -82,23 +34,48 @@
 	<span class="fa fa-whatsapp height-icon display-inline"></span>
 	<p class="display-inline">(48) 9 9806 0375 </p>
 </section>
-
 <!-- whats app section -->
 
 
 
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Produtos</h4>
+        </div>
+        <div class="modal-body">
+       		<div class="row">
+	  			<div class="col-md-8">
+	          		<img data-toggle="modal" data-target="#myModal" style="width: 100%; text-align: center;" src="images/gallery-trufas.jpg"  alt="gallery img">
+	          	</div>
+	          	<div class="col-md-4">
+	          		<p class="titulo-modal">Nome</p>
+	          		<p>Ingredientes</p>
+	          		<div class="telefone-modal text-center">
+	          			<span class="fa fa-whatsapp height-icon display-inline"></span>
+						<p class="display-inline">(48) 9 9806 0375 </p>
+	          		</div>
+	          		<button class="btn btn-success btn-block">COMPRE</button>
+	          	</div>
+          	</div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
 
 
 
+<!-- header -->
 
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-
-
-
-
-
-
-<section class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container" style="position: relative;">
 		<a href="#" class="navbar-brand" id="logo-G">
 			<figcaption>
@@ -117,95 +94,113 @@
 		<div class="collapse navbar-collapse" style="position: relative;">	
 			<div ng-mouseleave="menuDropDonwLeave()" ng-mouseover="menuDropDonwOver()">
 				<ul class="nav navbar-nav navbar-right fonte-menu menu-li-G">
-					<li><a href="#gallery" class="smoothScroll">PRODUTOS</a></li>
-					<li><a href="#team" class="smoothScroll">KITS</a></li>
-					<li><a href="#team" class="smoothScroll">EMPRESA</a></li>
-					<li><a href="#contact" class="smoothScroll">CONTATO</a></li>
+					<li><a href="#ancora-produtos" class="smoothScroll">PRODUTOS</a></li>
+					<li><a href="#ancora-produtos-ajax" ng-click="abrir(1)" class="smoothScroll menu-767px">TORTAS & BOLOS</a></li>
+					<li><a href="#ancora-produtos-ajax" ng-click="abrir(3)" class="smoothScroll menu-767px">SALGADOS</a></li>
+					<li><a href="#ancora-produtos-ajax" ng-click="abrir(2)" class="smoothScroll menu-767px">TRUFAS</a></li>
+					<li><a href="#ancora-kits" class="smoothScroll">KITS</a></li>
+					<li><a href="#ancora-kits-1" ng-click="alterarEstilo(1)" class="smoothScroll menu-767px">FESTA 20 PESSOAS</a></li>
+					<li><a href="#ancora-kits-2" ng-click="alterarEstilo(2)" class="smoothScroll menu-767px">FESTA 35 PESSOAS</a></li>
+					<li><a href="#ancora-kits-3" ng-click="alterarEstilo(3)" class="smoothScroll menu-767px">FESTA 50 PESSOAS</a></li>			
+					<li><a href="#ancora-contato" class="smoothScroll sumir-responsivo">EMPRESA</a></li>
+					<li><a href="#ancora-contato" class="smoothScroll">CONTATO</a></li>
 					<li class="height-icon">			
-						<a href="#" class="fa fa-facebook height-icon"></a>	
-						<a href="#" class="fa fa-instagram height-icon"></a>	
+						<a href="https://www.facebook.com/donaeliete" target="_blank" class="fa fa-facebook height-icon"></a>	
+						<a href="#" target="_blank" class="fa fa-instagram height-icon"></a>	
 					</li>
 				</ul>
 				<div ng-show="dropDonw" id="drop-donw-g">
 					<div>
 						<ul class="nav ul-style">
-							<li class="smoothScroll font-dropDonw font-dropDonw-titulo">PRODUTOS</li>
-							<li class="smoothScroll font-dropDonw">TORTAS & BOLOS</li>
-							<li class="smoothScroll font-dropDonw">SALGADOS</li>
-							<li class="smoothScroll font-dropDonw">DOCES</li>
+							<li class="smoothScroll font-dropDonw font-dropDonw-titulo"> PRODUTOS </li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-produtos-ajax" ng-click="abrir(1)" > TORTAS & BOLOS </a>  </li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-produtos-ajax" ng-click="abrir(3)" > SALGADOS </a>  </li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-produtos-ajax" ng-click="abrir(2)" > TRUFAS </a>  </li>
 						</ul>						
 					</div>
 					<div>
 						<ul class="nav ul-style">
 							<li class="smoothScroll font-dropDonw font-dropDonw-titulo">KIT FESTA</li>
-							<li class="smoothScroll font-dropDonw">FESTA 15 PESSAOS</li>
-							<li class="smoothScroll font-dropDonw">FESTA 30 PESSOAS</li>
-							<li class="smoothScroll font-dropDonw">FESTA 50 PESSOAS</li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-kits" ng-click="alterarEstilo(1)"> FESTA 20 PESSAOS </a> </li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-kits" ng-click="alterarEstilo(2)"> FESTA 35 PESSAOS </a> </li>
+							<li class="smoothScroll font-dropDonw"> <a href="#ancora-kits" ng-click="alterarEstilo(3)"> FESTA 50 PESSOAS </a> </li>
 						</ul>						
 					</div>
 				</div>
 			</div>
-		</div>
-
-			
-		
+		</div>		
 	</div>
-</section>
+</header>
+<!-- header -->
 
 
-<section id="home" class="parallax-section">
-	
+
+<!-- banner principal -->
+<section id="banner-principal" class="parallax-section">	
 	<div class="row">
-		<div class="col-md-6 ajuste-home">
-			<img class="img-home" src="images/home.png">
-			<img class="img-home" src="images/home.png">
+		<div class="col-md-6 ajuste-banner-principal">
+			<img class="img-banner-principal" src="images/home.png">
+			<img class="img-banner-principal" src="images/home.png">
 		</div>
-		<div class="col-md-6 ajuste-home">
-			<img class="img-home" src="images/home.png">
-			<img class="img-home" src="images/home.png">		
+		<div class="col-md-6 ajuste-banner-principal">
+			<img class="img-banner-principal" src="images/home.png">
+			<img class="img-banner-principal" src="images/home.png">		
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6 ajuste-home">
-			<img class="img-home" src="images/home.png">
-			<img class="img-home" src="images/home.png">
+		<div class="col-md-6 ajuste-banner-principal">
+			<img class="img-banner-principal" src="images/home.png">
+			<img class="img-banner-principal" src="images/home.png">
 		</div>
-		<div class="col-md-6 ajuste-home">
-			<img class="img-home" src="images/home.png">
-			<img class="img-home" src="images/home.png">		
+		<div class="col-md-6 ajuste-banner-principal">
+			<img class="img-banner-principal" src="images/home.png">
+			<img class="img-banner-principal" src="images/home.png">		
 		</div>			
 	</div>
 	<!--<div class=" btn-home">
 		<button class="btn btn-danger">FRASE</button>
 	</div>-->
+	<span id="ancora-produtos"></span>
 </section>
+<!-- banner principal -->
 
 
+
+
+<!-- produtos -->
 <section class="container" id="produtos-section">
 		<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
-			<h1 class="heading titulo-section">PRODUTOS</h1>
+			<h1 class="heading titulo-section" id="ancora-produtos">PRODUTOS</h1>
 			<hr>
 		</div>
 	
-		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.3s" ng-click="abrir(3)">
-			<figure>
-				<img  class="img-produtos" src="images/salgados-icon.png">
-			</figure>
-			<figcaption class="figure-caption font-produtos"><span>SALGADOS</span></figcaption>
+		<div class="col-md-4 div-produtos wow fadeInUp" data-wow-delay="0.3s" ng-click="abrir(3)">
+			<a href="#ancora-produtos-ajax">
+				<figure>
+					<img  class="img-produtos" src="images/salgados-icon.png">
+				</figure>
+				<figcaption class="figure-caption font-produtos"><span>SALGADOS</span></figcaption>
+			</a>
 		</div>
-		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.6s" ng-click="abrir(1)">
-			<figure>
-				<img  class="img-produtos" src="images/torta-icon.png">
-			</figure>
-			<figcaption class="figure-caption font-produtos"><span>BOLOS & TORTAS</span></figcaption>
+		<div class="col-md-4 div-produtos wow fadeInUp" data-wow-delay="0.6s" ng-click="abrir(1)">
+			<a href="#ancora-produtos-ajax">
+				<figure>
+					<img  class="img-produtos" src="images/torta-icon.png">
+				</figure>
+				<figcaption class="figure-caption font-produtos"><span>BOLOS & TORTAS</span></figcaption>
+			</a>
 		</div>
-		<div class="col-md-4 div-produtos wow bounceIn" data-wow-delay="0.9s" ng-click="abrir(2)">
-			<figure>
-				<img  class="img-produtos" src="images/brigadeiros-icon.png">
-			</figure>
-			<figcaption class="figure-caption font-produtos"><span>DOCES</span></figcaption>
+		<div class="col-md-4 div-produtos wow fadeInUp" data-wow-delay="0.9s" ng-click="abrir(2)">
+			<a href="#ancora-produtos-ajax">
+				<figure>
+					<img  class="img-produtos" src="images/brigadeiros-icon.png">
+				</figure>
+				<figcaption class="figure-caption font-produtos"><span>TRUFAS</span></figcaption>
+			</a>
 		</div>
+		<span id="ancora-produtos-ajax"></span>
 </section>
+<!-- produtos -->
 
 
 
@@ -213,42 +208,43 @@
 <section id="gallery" class="container-fluid">
 	<div class="container" >		
 		<div class="row" ng-if="abrirTorta">
+			
 			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
 				<h1 class="heading">BOLOS & TORTAS</h1>
 				<hr>
 			</div>
 
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Prawn</h3>
 					<span>Seafood / Shrimp / Lemon</span>
 				</div>
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Vegetables</h3>
 					<span>Tomato / Rosemary / Lemon</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-bolos.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-bolos.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
@@ -257,41 +253,42 @@
 		</div>
 
 		<div class="row" ng-if="abrirDoce">		
+			
 			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
 				<h1 class="heading">TRUFAS</h1>
 				<hr>
 			</div>	
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Prawn</h3>
 					<span>Seafood / Shrimp / Lemon</span>
 				</div>
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Vegetables</h3>
 					<span>Tomato / Rosemary / Lemon</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-trufas.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-trufas.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
@@ -300,41 +297,41 @@
 		</div>
 
 		<div class="row" ng-if="abrirSalgado">	
-		<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
+			<div class="col-md-offset-1 col-md-10 col-sm-12 text-center">
 				<h1 class="heading">SALGADOS</h1>
 				<hr>
 			</div>		
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-				<img src="images/gallery-salgados.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Prawn</h3>
 					<span>Seafood / Shrimp / Lemon</span>
 				</div>
-				<img src="images/gallery-salgados.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Vegetables</h3>
 					<span>Tomato / Rosemary / Lemon</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-				<img src="images/gallery-salgados.jpg"   alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"   alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-salgados.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
-				<img src="images/gallery-salgados.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Salad</h3>
 					<span>Chicken / Rosemary / Green</span>
 				</div>
-				<img src="images/gallery-salgados.jpg"  alt="gallery img">
+				<img data-toggle="modal" data-target="#myModal" src="images/gallery-salgados.jpg"  alt="gallery img">
 				<div>
 					<h3>Lemon-Rosemary Pizza</h3>
 					<span>Pasta / Rosemary / Green</span>
@@ -344,8 +341,12 @@
 	</div>
 </section>
 
+<span id="ancora-kits"></span>
 
-<!--.......................................................................... secao de kits -->
+
+
+
+<!--Secao de kits -->
 <section id="pricing-section">
     <div class="wrap-pad">
         <div class="row">
@@ -355,9 +356,11 @@
 			</div>
             <!-- ./ Heading div-->   <!-- class featured destaca o objeto -->
             <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 margin-top-50 ">
+            	
                 <div id="pricing-table" class="row">
-                    <div class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.3s" data-scrollreveal="enter left and move 100px, wait 0.6s">
-                        <ul class="plan-main">
+                	<span id="ancora-kits-1"></span>
+                    <div  class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.3s" data-scrollreveal="enter left and move 100px, wait 0.6s">
+                        <ul class="plan-main" ng-class="kit1">
                             <li class="plan-name">Evento 20 pessoas</li>
                             <li class="plan-price">R$ 80</li>
                             <li>20 Doces</li>
@@ -369,8 +372,9 @@
                             <li class="plan-action"><a href="#" class="btn btn-danger btn-lg">Compre</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.6s" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
-                        <ul class="plan-main">
+                    <span id="ancora-kits-2"></span>
+                    <div  class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.6s" data-scrollreveal="enter bottom and move 100px, wait 0.6s">
+                        <ul class="plan-main" ng-class="kit2">
                             <li class="plan-name">Evento 35 pessoas</li>
                             <li class="plan-price">R$ 140</li>
                             <li>20 Doces</li>
@@ -382,8 +386,9 @@
                             <li class="plan-action"><a href="#" class="btn btn-danger btn-lg">Compre</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.9s" data-scrollreveal="enter right and move 100px, wait 0.6s">
-                        <ul class="plan-main">
+                    <span id="ancora-kits-3"></span>
+                    <div  class="col-md-4 col-sm-4  wow fadeInUp" data-wow-delay="0.9s" data-scrollreveal="enter right and move 100px, wait 0.6s">
+                        <ul class="plan-main" ng-class="kit3">
                             <li class="plan-name">Evento 50 pessoas</li>
                             <li class="plan-price">R$ 250</li>
                             <li>20 Doces</li>
@@ -401,10 +406,11 @@
         </div>
     </div>
 </section>
+<!--Secao de kits -->
 
-<!-- ......................................................................... secao de kits -->
 
-
+<!-- contato e empresa -->
+<span id="ancora-contato"></span>
 <!-- contact section -->
 <section id="contact" class="parallax-section">
 	<div class="container">
@@ -446,13 +452,13 @@
 					<p><div class="titulo-empresa">Missão</div></p>
 					<p>
 						<div class="text-empresa"> Oferecer soluções para comemorações & festas de aniversario</div>
-					</p>
-					
+					</p>					
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<!-- contato e empresa -->
 
 
 <!-- footer section -->
@@ -460,7 +466,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-				<h2 class="heading">Peça já</h2>
+				<h2 class="heading">Pedidos</h2>
 				<div class="ph">
 					<h4>(48) 9 9806 0375</h4>
 					<h4>(48) 9 9806 0375</h4>
@@ -469,7 +475,9 @@
 			<div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
 				<h2 class="heading">Redes Sociais</h2>
 				<ul class="social-icon">
-					<li><a href="#" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a></li>
+					<li>
+						<a href="https://www.facebook.com/donaeliete" target="_blank" class="fa fa-facebook wow bounceIn" data-wow-delay="0.3s"></a>
+					</li>
 					<li><a href="#" class="fa fa-instagram wow bounceIn" data-wow-delay="0.6s"></a></li>
 				</ul>
 			</div>
@@ -482,13 +490,18 @@
 			</div>			
 		</div>
 	</div>
-	<p style="text-align: center; margin-top: 25px">@ Sabores Dona Eliete - 2017 - Todos os direitos reservados</p>
+	<div class="container-fluid">
+		<p class="col-md-offset-4 col-md-4">@ Sabores Dona Eliete 2017 <br> Todos os direitos reservados</p>
+		<div class="col-md-4 text-right"> 
+			<img class="img-produtos topo" src="images/topo.png">
+		</div>
+	</div>
 </footer>
 
 
 
 
-	
+<!-- link bibliotecas -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.parallax.js"></script>
@@ -496,80 +509,20 @@
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<!-- link bibliotecas -->
+
+<!-- links angular e funcoes js -->
+<script type="text/javascript" src="js/module.angular.js"></script>
+<script type="text/javascript" src="js/controller.angular.js"></script>
+<script type="text/javascript" src="js/enviaEmail.js"></script>
+<script type="text/javascript" src="js/voltarTopo.js"></script>
+<!-- links angular e funcoes js -->
 
 
-<!-- begin jquery do enviar formulario -->
- 
-  <script language="javascript" type="text/javascript">
-    // evitando que os dados sejam submetidos pelo modo tradicional
-    jQuery(document).ready(function(){
-    jQuery("#dadosFormulario").submit(function(){
-    return false;
-    });
-            
-    // carregando a função para o envio
-    jQuery("#fBotao").click(function(){
-    envia_form();
-    });
-     
-    // limpando a div antes de um novo envio
-    function envia_form() {
-        jQuery("#retorno").empty();
-                
-        // pegando os campos do formulário
-        var fnome = jQuery("#fnome").val();
-        var ftelefone = jQuery("#ftelefone").val();
-        var femail = jQuery("#femail").val();
-        var fmensagem = jQuery("#fmensagem").val();
-         
-        // tipo dos dados, url do documento, tipo de dados, campos enviados     
-        // para GET mude o type para GET  
-        jQuery.ajax({
-        type: "POST",
-        url: "php/enviarEmail.php",
-        dataType: "html",
-        data: "&fnome=" + fnome + "&ftelefone=" + ftelefone + "&femail=" + femail + "&fmensagem=" + fmensagem,
-         
-        // enviado com sucesso
-        success: function(response){
-        jQuery("#retorno").append(response);
-        alert("Mensagem enviada com sucesso");
-        },
-        // quando houver erro
-        error: function(){
-        alert("Erro no envio da mensagem, caso o erro persista ligue - (48) 9 9806 0375");
-        }
-      });        
-    }
-    });
-  </script>
-
-<!-- end jquery do enviar formulario -->
-
-
-<button  data-toggle="modal" data-target="#myModal">Open Large Modal</button>  <!-- fundamental modal btn -->
-<!-- Modal -->
-
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a large modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-
+<script type="text/javascript">
+	$("")
+</script>
 
 </body>
 </html>
