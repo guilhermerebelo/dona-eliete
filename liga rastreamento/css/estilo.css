@@ -1,0 +1,80 @@
+/*landing page*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+/*geral*/
+
+body{
+	background-color: background: rgba(16,88,150,1);
+	background: -moz-linear-gradient(-45deg, rgba(16,88,150,1) 0%, rgba(0,183,207,1) 67%, rgba(0,152,207,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(16,88,150,1)), color-stop(67%, rgba(0,183,207,1)), color-stop(100%, rgba(0,152,207,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(16,88,150,1) 0%, rgba(0,183,207,1) 67%, rgba(0,152,207,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(16,88,150,1) 0%, rgba(0,183,207,1) 67%, rgba(0,152,207,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(16,88,150,1) 0%, rgba(0,183,207,1) 67%, rgba(0,152,207,1) 100%);
+	background: linear-gradient(135deg, rgba(16,88,150,1) 0%, rgba(0,183,207,1) 67%, rgba(0,152,207,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#105896', endColorstr='#0098cf', GradientType=1 );	
+	width: 100%;
+	min-height: 700px;
+}
+.conteudo{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	display: flex;	
+}
+.fonte{
+	font-family: 'Roboto Condensed', sans-serif;
+	color: white;
+	letter-spacing: 3px;
+	word-wrap: break-word;
+}
+/*geral*/
+
+/*header*/
+.inicio-txt{
+	font-size: 18px;
+}
+.txt-valor{
+	font-size: 80px;
+}
+.txt-valor span{
+	font-size: 40px;
+}
+.previa{
+	margin-top: 20px;
+}
+/*header*/
+
+/* valor*/
+#celular{
+	transform: scale(0.9);	
+}
+
+
+/* diferencias */
+ul{
+	margin-top: 50px;
+}
+ul h1{
+	font-size: 60px;
+}
+ul li{
+	font-size: 22px;
+}
+/* diferencias */
+
+/* logo-telefone*/
+
+.font-contato{
+	font-size: 40px;
+}
+
+/*logo-telefone*/
+.texto-padding-button{
+	padding-bottom: 15px;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .texto-esquerda{
+  	text-align: center;
+  }
+}
