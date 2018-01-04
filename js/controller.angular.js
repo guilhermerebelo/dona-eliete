@@ -1,6 +1,6 @@
 angular.module("dona-eliete").controller("ajaxCtrl",function ($scope) {
 			$scope.abrir = function(par){
-				//funcao para abri e fechar utilizando ajax
+				//funcao para abri e fechar
 				switch (par){
 					case 1:
 						if ($scope.abrirTorta == true) {

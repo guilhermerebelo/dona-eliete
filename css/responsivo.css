@@ -1,3 +1,17 @@
+@media screen and (max-width: 992px){
+  .logoTopo{
+    height: 105px;
+  }
+}
+
+
+@media screen and (max-width: 776px){
+  .plan-main{
+    width: 85%;
+    margin: auto !important;
+  }
+} 
+
 /* abaixo de 767px ele vai aplicar essas estilizações */
 @media screen and (max-width: 767px){
   .menu-li-G{
@@ -11,9 +25,6 @@
   }
 
 }
-
-
-
 
 /* acima de 767px ele vai aplicar essas estilizações */
 @media screen and (min-width: 767px){
