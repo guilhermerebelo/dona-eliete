@@ -46,6 +46,8 @@
 			$this->conexaoBanco(); //conetar banco de dados
 
 			mysqli_query($this->link, $query);
+			$feedback = "Concluido";
+			return $feedback;
 
 		}
 

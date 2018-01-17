@@ -1,7 +1,35 @@
 <?php 
 	session_start();
 	if (!$_SESSION["nome"]) header("Location: ../login.php");
+
+	include_once "CRUD.php";
+	$CRUD = new CRUD;
  ?>
+
+<?php 
+	/* trazendo dados empresa do banco de dados */
+	$getEmpresa = $CRUD->get("SELECT * FROM `empresa`");
+	$getEmpresa =  mysqli_fetch_assoc($getEmpresa);
+?>
+<?php  
+	//trazendo dados dos kits do banco de dados
+	$getKits1 = $CRUD->get("SELECT * FROM `kits` WHERE `id` = 1");
+	$getKits2 = $CRUD->get("SELECT * FROM `kits` WHERE `id` = 2");
+	$getKits3 = $CRUD->get("SELECT * FROM `kits` WHERE `id` = 3");
+	$getKits1 = mysqli_fetch_assoc($getKits1);
+	$getKits2 = mysqli_fetch_assoc($getKits2);
+	$getKits3 = mysqli_fetch_assoc($getKits3);
+?>
+
+<?php  
+
+	$getProdutos = $CRUD->get("SELECT * FROM `produtos`")
+
+
+
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -157,7 +185,7 @@
 
 			        	<div class="col-md-12 d-flex flex-nowrap flex-row">
 			        		<div class="col-md-2">
-			        			<button class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
+			        			<button data-toggle="modal" data-target="#novoProdutoModal" class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
 			        		</div>
 			        		<div class="col-md-10">
 			        			<div class="form-group">
@@ -166,8 +194,41 @@
 			        		</div>
 			        	</div>
 
+			        	<?php  
+			        		for ($i=1; $i < 4 ; $i++) { 
+			        			echo 
+			        			'
+			        			<div style="border: 1px solid rgba(0,0,0,.125); border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
+					        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
+					        			<h3>#'.$i.'</h3>&nbsp&nbsp&nbsp&nbsp
+					        			<img  height="90" src="../images/gallery-bolos.jpg">
+					        		</div>
+					        		<div class="col-md-3 text-left">
+					        			<p> <strong>Nome:</strong> Torta Sabor</p>			        			
+					        			<p> <strong>Valor (Kg):</strong> 24.9 o kilo</p>	
+					        		</div>
+					        		<div class="col-md-4" style="overflow: hidden;">
+					        			<p> <strong>Ingredientes:</strong> Sabor Sabor Sabor Sabor Sabor  </p>
+					        		</div>
+					        		<div class="col-md-2 text-left">			        			
+					        			<p>
+					        				<button data-toggle="modal" data-target="#produtosModal" class="btn btn-warning"> <i class="fa fa-cog"></i> Editar Dados</button>
+					        			</p>
+					        			<p>
+					        				<button class="btn btn-primary"> <i class="fa fa-ban"></i> Desativar</button>
+					        			</p>
+					        			<p>
+					        				<button class="btn btn-danger"> <i class="fa fa-trash"></i> Excluir Produto</button>
+					        			</p>					        			
+					        		</div>
+					        	</div>
 
-			        	<div style="border: 1px solid #efefef; border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
+
+			        			';
+			        		}
+			        	?>
+
+			        	<div style="border: 1px solid rgba(0,0,0,.125); border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
 			        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
 			        			<h3>#1</h3>&nbsp&nbsp&nbsp&nbsp
 			        			<img  height="90" src="../images/gallery-bolos.jpg">
@@ -199,7 +260,7 @@
 
 			        	<div class="col-md-12 d-flex flex-nowrap flex-row">
 			        		<div class="col-md-2">
-			        			<button class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
+			        			<button data-toggle="modal" data-target="#novoProdutoModal" class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
 			        		</div>
 			        		<div class="col-md-10">
 			        			<div class="form-group">
@@ -208,27 +269,37 @@
 			        		</div>
 			        	</div>
 
-			        	<div style="border: 1px solid #efefef; border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
-			        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
-			        			<h3>#1</h3>&nbsp&nbsp&nbsp&nbsp
-			        			<img  height="90" src="../images/gallery-bolos.jpg">
-			        		</div>
-			        		<div class="col-md-3 text-left">
-			        			<p> <strong>Nome:</strong> Torta Sabor</p>			        			
-			        			<p> <strong>Valor (Kg):</strong> 24.9 o kilo</p>	
-			        		</div>
-			        		<div class="col-md-4" style="overflow: hidden;">
-			        			<p> <strong>Ingredientes:</strong> Sabor Sabor Sabor Sabor Sabor  </p>
-			        		</div>
-			        		<div class="col-md-2 text-left">			        			
-			        			<p>
-			        				<button data-toggle="modal" data-target="#produtosModal" class="btn btn-warning"> <i class="fa fa-cog"></i> Editar Dados</button>
-			        			</p>
-			        			<p>
-			        				<button class="btn btn-danger"> <i class="fa fa-trash"></i> Excluir Produto</button>
-			        			</p>
-			        		</div>
-			        	</div>	
+
+			        	<?php  
+			        		for ($i=0; $i < 3 ; $i++) { 
+			        			echo 
+			        			'
+			        			<div style="border: 1px solid rgba(0,0,0,.125); border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
+					        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
+					        			<h3>#1</h3>&nbsp&nbsp&nbsp&nbsp
+					        			<img  height="90" src="../images/gallery-bolos.jpg">
+					        		</div>
+					        		<div class="col-md-3 text-left">
+					        			<p> <strong>Nome:</strong> Torta Sabor</p>			        			
+					        			<p> <strong>Valor (Kg):</strong> 24.9 o kilo</p>	
+					        		</div>
+					        		<div class="col-md-4" style="overflow: hidden;">
+					        			<p> <strong>Ingredientes:</strong> Sabor Sabor Sabor Sabor Sabor  </p>
+					        		</div>
+					        		<div class="col-md-2 text-left">			        			
+					        			<p>
+					        				<button data-toggle="modal" data-target="#produtosModal" class="btn btn-warning"> <i class="fa fa-cog"></i> Editar Dados</button>
+					        			</p>
+					        			<p>
+					        				<button class="btn btn-danger"> <i class="fa fa-trash"></i> Excluir Produto</button>
+					        			</p>
+					        		</div>
+					        	</div>
+
+
+			        			';
+			        		}
+			        	?>
 
 			        	        	
 			        </div>
@@ -242,7 +313,7 @@
 
 			        	<div class="col-md-12 d-flex flex-nowrap flex-row">
 			        		<div class="col-md-2">
-			        			<button class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
+			        			<button data-toggle="modal" data-target="#novoProdutoModal" class="btn btn-success"> <i class="fa fa-plus"></i> Novo Produto</button>
 			        		</div>
 			        		<div class="col-md-10">
 			        			<div class="form-group">
@@ -251,28 +322,37 @@
 			        		</div>
 			        	</div>
 
-			        	<div style="border: 1px solid #efefef; border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
-			        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
-			        			<h3>#1</h3>&nbsp&nbsp&nbsp&nbsp
-			        			<img  height="90" src="../images/gallery-bolos.jpg">
-			        		</div>
-			        		<div class="col-md-3 text-left">
-			        			<p> <strong>Nome:</strong> Torta Sabor</p>			        			
-			        			<p> <strong>Valor (Kg):</strong> 24.9 o kilo</p>	
-			        		</div>
-			        		<div class="col-md-4" style="overflow: hidden;">
-			        			<p> <strong>Ingredientes:</strong> Sabor Sabor Sabor Sabor Sabor  </p>
-			        		</div>
-			        		<div class="col-md-2 text-left">			        			
-			        			<p>
-			        				<button data-toggle="modal" data-target="#produtosModal" class="btn btn-warning"> <i class="fa fa-cog"></i> Editar Dados</button>
-			        			</p>
-			        			<p>
-			        				<button class="btn btn-danger"> <i class="fa fa-trash"></i> Excluir Produto</button>
-			        			</p>
-			        		</div>
-			        	</div>	
 
+			        	<?php  
+			        		for ($i=0; $i < 3 ; $i++) { 
+			        			echo 
+			        			'
+			        			<div style="border: 1px solid rgba(0,0,0,.125); border-radius: 3px; padding: 15px 15px 15px 0; background-color: #F7F7F7; margin-bottom: 30px;" class="d-flex flex-wrap flex-row justify-content-between align-items-center">
+					        		<div class="col-md-3 text-center d-flex flex-row align-items-center">
+					        			<h3>#1</h3>&nbsp&nbsp&nbsp&nbsp
+					        			<img  height="90" src="../images/gallery-bolos.jpg">
+					        		</div>
+					        		<div class="col-md-3 text-left">
+					        			<p> <strong>Nome:</strong> Torta Sabor</p>			        			
+					        			<p> <strong>Valor (Kg):</strong> 24.9 o kilo</p>	
+					        		</div>
+					        		<div class="col-md-4" style="overflow: hidden;">
+					        			<p> <strong>Ingredientes:</strong> Sabor Sabor Sabor Sabor Sabor  </p>
+					        		</div>
+					        		<div class="col-md-2 text-left">			        			
+					        			<p>
+					        				<button data-toggle="modal" data-target="#produtosModal" class="btn btn-warning"> <i class="fa fa-cog"></i> Editar Dados</button>
+					        			</p>
+					        			<p>
+					        				<button class="btn btn-danger"> <i class="fa fa-trash"></i> Excluir Produto</button>
+					        			</p>
+					        		</div>
+					        	</div>
+
+
+			        			';
+			        		}
+			        	?>
 			        	        	
 			        </div>
 		      	</div>
@@ -298,136 +378,130 @@
 					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Kit 3</a>
 				</li>
 			</ul>
-			<div class="tab-content" id="myTabContent">
-			  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-			  	<br>
-		  			<form>
-			  			<div class="d-flex flex-wrap flex-row">
+			<form method="POST" action="crudKits.php">
+				<div class="tab-content" id="myTabContent">				
+				  	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+			  			<br>		  			
+		  				<div class="d-flex flex-wrap flex-row">
 				  			<div class="form-group col-md-4">
 							    <label>Qntd Pessoas</label>
-							    <input type="text" class="form-control" maxlength="4">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_pessoas']) ?>" required maxlength="4" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Valor Evento (R$)</label>
-							    <input type="text" class="form-control" maxlength="20">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['valor_evento']) ?>" required maxlength="20" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Doces (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_doces']) ?>" required maxlength="6" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Coxinhas (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_coxinhas']) ?>" required maxlength="6" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Pasteis (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_pasteis']) ?>" required maxlength="6" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Risoles (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_risoles']) ?>" required maxlength="6" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Refrigerantes (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['qntd_refri']) ?>" required maxlength="6" >
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Tortas (KG)</label>
-							    <input type="text" class="form-control" maxlength="10">
+							    <input name="dadosKit1[]" type="text" class="form-control" value="<?php echo($getKits1['kg_tortas']) ?>" required maxlength="10" >
 						  	</div>
 						  	<div class="col-md-4">						  		
-						  		<button style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar Kit 1</button>
+						  		<button type="submit" style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar Kit 1</button>
 						  	</div>
-					  	</div>  				
-			  		</form>
-			  </div>
-			  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-			  	<br>
-			  			<form>
+					  	</div> 	
+				  	</div>
+				  	<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+			  			<br>
 			  			<div class="d-flex flex-wrap flex-row">
 				  			<div class="form-group col-md-4">
 							    <label>Qntd Pessoas</label>
-							    <input type="text" class="form-control" maxlength="4">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_pessoas']) ?>" required maxlength="4">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Valor Evento (R$)</label>
-							    <input type="text" class="form-control" maxlength="20">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['valor_evento']) ?>" required maxlength="20">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Doces (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_doces']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Coxinhas (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_coxinhas']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Pasteis (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_pasteis']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Risoles (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_risoles']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Refrigerantes (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['qntd_refri']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Tortas (KG)</label>
-							    <input type="text" class="form-control" maxlength="10">
+							    <input name="dadosKit2[]" type="text" class="form-control" value="<?php echo($getKits2['kg_tortas']) ?>" required maxlength="10">
 						  	</div>
 						  	<div class="col-md-4">						  		
-						  		<button style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar Kit 2</button>
+						  		<button type="submit" style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar Kit 2</button>
 						  	</div>
-					  	</div>  				
-			  		</form>
-			  	
-			  </div>
-			  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-			  	<br>
-			  		<form>
+					  	</div> 
+				  	</div>
+			  		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+			  			<br>
 			  			<div class="d-flex flex-wrap flex-row">
 				  			<div class="form-group col-md-4">
 							    <label>Qntd Pessoas</label>
-							    <input type="text" class="form-control" maxlength="4">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_pessoas']) ?>" required maxlength="4">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Valor Evento (R$)</label>
-							    <input type="text" class="form-control" maxlength="20">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['valor_evento']) ?>" required maxlength="20">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Doces (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_doces']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Coxinhas (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_coxinhas']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Pasteis (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_pasteis']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Risoles (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_risoles']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Refrigerantes (UN)</label>
-							    <input type="text" class="form-control" maxlength="6">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['qntd_refri']) ?>" required maxlength="6">
 						  	</div>
 						  	<div class="form-group col-md-4">
 							    <label>Tortas (KG)</label>
-							    <input type="text" class="form-control" maxlength="10">
+							    <input name="dadosKit3[]" type="text" class="form-control" value="<?php echo($getKits3['kg_tortas']) ?>" required maxlength="10">
 						  	</div>
 						  	<div class="col-md-4">						  		
-						  		<button style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar kit 3</button>
+						  		<button type="submit" style="margin-top: 32px;" class="btn btn-success"> <i class="fa fa-check"></i> Salvar kit 3</button>
 						  	</div>
-					  	</div>  				
-			  		</form>
-			  	
-			  </div>
-			</div>
+					  	</div>  	
+			  		</div>			  	
+				</div>
+			</form>
 	        	      	
 	        </div>
       	</div>
@@ -437,84 +511,36 @@
 	         	 <i class="fa fa-file-image-o"></i> Imagens</div>
 	        <div class="card-body">
 	        	<p> <strong> Imagens do banner principal </strong> </p>
-	        	<div class="d-flex flex-row flex-wrap justify-content-around text-center">
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 1º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 2º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 3º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 4º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3 ">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 5º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 6º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 7º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<img width="200" src="../images/home.png">
-	        			<br>
-	        			<div>
-		        			<p class="text-left">
-		        				<input class="form-control" style="font-size: 16px" type="file"> Alterar 8º Imagem
-		        			</p>
-	        			</div>
-	        		</div>
-	        	</div>
-
+	        	<form method="POST" action="uploadImages.php" enctype="multipart/form-data">
+		        	<div class="d-flex flex-row flex-wrap justify-content-around text-center">	        		
+		        		<?php 	        			
+		        			for($i = 1; $i < 9; $i++){
+		        				echo 
+		        				'<div class="col-md-3">
+		        					<div style="overflow:hidden; height:200px; width:200px;">
+				        				<img width="200" src="../images/bannerPrincipal/imagem'.$i.'.jpg">
+				        			</div>
+				        			<br>
+				        			<div>
+					        			<p class="text-left">				        				
+				        					<input class="form-control " name="imagemUpload'.$i.'" style="font-size: 16px" type="file">
+					        			</p>
+				        			</div>
+				        		</div>'
+				        		;
+		        			}	        			
+		        		?>
+		        	</div>
+		        	<p>*Apenas arquivo com a extensão JPG</p>
+		        	<p>tamanho sugerido <strong> 420px largura e 310px altura </strong> </p>
+		        	<button type="submit" class="btn btn-success">Alterar Imagens</button> 
+		        	<button class="btn btn-warning">Limpar</button> 		        	
+		        	<p>melhorias => subir outras extensoes, implementar o limpar</p>
+	        	</form>
 	        </div>
       	</div>
 
+      	
       	<div class="card mb-3">
 	        <div class="card-header">
 	         	 <i class="fa fa-cog"></i> Empresa</div>
@@ -524,19 +550,19 @@
 		        		<tbody>	        		
 			        		<tr>
 			        			<th>História</th>
-			        			<td>História História história História História História História História história História História História História História história História História História História História história História História História História História história História História História História História história História História História História História história História História História História História história História História História História História história História História História</td>
+			        			<td> <?php echo $getEmpresa['historia'];  ?> </td>
 			        		</tr>
 			        		<tr>
 			        			<th>Missão</th>
-			        			<td>História História história História História História História História história História História História História História história História História História </td>
+			        			<td><?php echo $getEmpresa['missao'];  ?> </td>
 			        		</tr>
 			        		<tr>
 			        			<th>Facebook</th>
-			        			<td>História História história História História História </td>
+			        			<td> <?php echo $getEmpresa['urlFacebook'];  ?> </td>
 			        		</tr>
 			        		<tr>
 			        			<th>Instagram</th>
-			        			<td>História História história História História História </td>
+			        			<td> <?php echo $getEmpresa['urlInstagram'];  ?> </td>
 			        		</tr>		        		
 		        		</tbody>  
 		        	</table>
@@ -546,19 +572,19 @@
 		        		<tbody>
 			        		<tr>
 			        			<th>WhatsApp</th>
-			        			<td>(48) 998060375</td>
+			        			<td> <?php echo $getEmpresa['whatsapp'];  ?> </td>
 			        		</tr>
 			        		<tr>
 			        			<th>Endereço</th>
-			        			<td>rua 1349, numero 43</td>
+			        			<td> <?php echo $getEmpresa['endereco'];  ?></td>
 			        		</tr>
 			        		<tr>
 			        			<th>Cidade</th>
-			        			<td>Criciúma</td>
+			        			<td> <?php echo $getEmpresa['cidade'];  ?> </td>
 			        		</tr>
 			        		<tr>
 			        			<th>Estado</th>
-			        			<td>SC</td>
+			        			<td> <?php echo $getEmpresa['estado'];  ?> </td>
 			        		</tr>      		
 		        	</table>
 	        	</div>
@@ -614,8 +640,9 @@
 
     <div class="container">
 	  
-	  <!-- Modal -->
-	  <div class="modal fade" id="empresaDadosModal" role="dialog">
+
+
+	  <div class="modal fade" id="empresaDadosModal" role="dialog">	  	
 	    <div class="modal-dialog modal-lg">
 	      <div class="modal-content">
 	        <div class="modal-header">
@@ -623,47 +650,47 @@
 	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
 	        </div>
 	        <div class="modal-body">
-	        	<form>
+	        	<form action="crudDadosEmpresa.php" method="POST">
 	        		<div class="form-group">
 				    	<label >História</label>
-				    	<textarea class="form-control" maxlength="700"></textarea>
+				    	<textarea name="historiaEmpresa" class="form-control" maxlength="700"> <?php echo $getEmpresa['historia']; ?> </textarea>
 				  	</div>
 				  	<div class="form-group">
 				    	<label >Missão</label>
-				    	<input type="text" class="form-control" maxlength="300">
+				    	<input name="missaoEmpresa" type="text" class="form-control" maxlength="300" value="<?php echo $getEmpresa['missao']; ?>">
 				  	</div>
 				  	<hr>
 				  	<div class=" form-group d-flex flex-wrap flex-row">
 					  	<div class="form-group col-md-6">
 					    	<label >Facebook(url)</label>
-					    	<input type="text" class="form-control" maxlength="200">
+					    	<input name="facebookEmpresa" type="text" class="form-control" maxlength="200" value="<?php echo $getEmpresa['urlFacebook']; ?>">
 					  	</div>
 					  	<div class="form-group col-md-6">
 					    	<label >Instagram(url)</label>
-					    	<input type="text" class="form-control" maxlength="200">
+					    	<input name="instagramEmpresa" type="text" class="form-control" maxlength="200" value="<?php echo $getEmpresa['urlInstagram']; ?>">
 					  	</div>
 				  	</div>		
 				  	<hr>	  	
 				  	<div class="d-flex flex-row flex-wrap">
 				  		<div class="form-group col-md-5">
 					    	<label >WhatsApp</label>
-					    	<input type="text" class="form-control" maxlength="30">
+					    	<input name="whatsappEmpresa" type="text" class="form-control" maxlength="30" value="<?php echo $getEmpresa['whatsapp']; ?>">
 					  	</div>
 				  		<div class="form-group col-md-5">
 					    	<label >Cidade</label>
-					    	<input type="text" class="form-control" maxlength="70">
+					    	<input name="cidadeEmpresa" type="text" class="form-control" maxlength="70" value=" <?php echo($getEmpresa['cidade']) ?> ">
 					  	</div>
 					  	<div class="form-group col-md-2">
 					    	<label >Estado</label>
-					    	<input type="text" class="form-control text-uppercase" maxlength="2">
+					    	<input name="estadoEmpresa" type="text" class="form-control text-uppercase" maxlength="2" value="<?php echo $getEmpresa['estado']; ?>">
 					  	</div>
 					  	<div class="form-group col-md-12">
 					    	<label >Endereço</label>
-					    	<input type="text" class="form-control" maxlength="300">
+					    	<input name="enderecoEmpresa" type="text" class="form-control" maxlength="300" value="<?php echo $getEmpresa['endereco']; ?>">
 					  	</div>
 				  	</div>
 				  	<div class="form-group">
-				  		<button class="btn btn-success"> <i class="fa fa-check"></i> Salvar Alterações</button>
+				  		<button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Salvar Alterações</button>
 				  		<button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-times"></i> Fechar</button>
 				  	</div>
 			  	</form>
@@ -733,10 +760,68 @@
 	  </div>
 	</div>
 
-
-
-
-
+	<div class="container">
+	  
+	  <!-- Modal -->
+	  <div class="modal fade" id="novoProdutoModal" role="dialog">
+	    <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	        	<h4><i class="fa fa-plus"></i> Novo Produto</h4>
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        </div>
+	        <div class="modal-body">
+	        	<form>
+	        		<div class="d-flex flex-row flex-wrap">
+	        			<div class="col-md-5 d-flex flex-colunm flex-wrap">
+	        				<div class="form-group col-md-12">
+	        					<label >Selecione o grupo de produto</label>
+						    	<select class="form-control">
+						    		<option>Selecione a opção</option>
+						    		<option value="salgado">Salgado</option>
+						    		<option value="bolo">Tortas & Bolos</option>
+						    		<option value="trufa">Trufas</option>
+						    	</select>
+						  	</div>
+						  	<div class="form-group col-md-12">
+						    	<label >Nova Imagem</label>
+						    	<input id="uploadImage" type="file" class="form-control" maxlength="300" >
+						  	</div>
+	        			</div>
+	        			<div class="col-md-7 text-center">
+	        				<img id="uploadPreview" height="200">
+	        			</div>		
+				  	</div>
+				  	
+				  	<hr>
+				  	<div class=" form-group d-flex flex-wrap flex-row">
+					  	<div class="form-group col-md-8">
+					    	<label >Nome/Sabor</label>
+					    	<input type="text" class="form-control" maxlength="200">
+					  	</div>
+					  	<div class="form-group col-md-4">
+					    	<label >Valor do Kg</label>
+					    	<input type="text" class="form-control" maxlength="200">
+					  	</div>
+				  	</div>		
+				  	<hr>	  	
+				  	<div class="form-group">
+				    	<label>Ingredientes</label>
+				    	<input type="text" class="form-control" maxlength="200">
+				  	</div>
+				  	<div class="form-group">
+				  		<button class="btn btn-success"> <i class="fa fa-check"></i> Salvar Produto</button>
+				  		<button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-times"></i> Fechar</button>
+				  	</div>
+			  	</form>
+	        </div>
+	        <div class="modal-footer">
+	          
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -745,16 +830,27 @@
     <!-- Core plugin JavaScript-->
     <script src="../plugin-admin/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../plugin-admin/vendor/chart.js/Chart.min.js"></script>
     <script src="../plugin-admin/vendor/datatables/jquery.dataTables.js"></script>
     <script src="../plugin-admin/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="../plugin-admin/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="../plugin-admin/js/sb-admin-datatables.min.js"></script>
-    <script src="../plugin-admin/js/sb-admin-charts.min.js"></script>
-  </div>
+
+
+
+    <script type="text/javascript">
+    	//renderiza imagem no admin
+  		$("#uploadImage").change(function(){
+			var oFReader = new FileReader();
+		    oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+		    oFReader.onload = function (oFREvent) {
+		        document.getElementById("uploadPreview").src = oFREvent.target.result;
+		        console.log(oFREvent.target);
+		    };
+		})
+  	</script>
+  
 </body>
-
 </html>
-
